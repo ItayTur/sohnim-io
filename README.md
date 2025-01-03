@@ -4,6 +4,20 @@ Welcome to the **sohnim.io** repository! This README will guide you through sett
 
 ---
 
+## Menu
+
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+  - [1. Clone the Repository](#1-clone-the-repository)
+  - [2. Set Up Environment Variables](#2-set-up-environment-variables)
+  - [3. Install Dependencies](#3-install-dependencies)
+  - [4. Start the Development Server](#4-start-the-development-server)
+- [Continuous Deployment](#continuous-deployment)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
+- [Support](#support)
+
 ## Prerequisites
 
 Ensure you have the following installed on your machine:
@@ -90,7 +104,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ## Support
 
-If you encounter any issues, please create a new issue in the [GitHub Issues](https://github.com/your-username/sohnim.io/issues) section of this repository.
+If you encounter any issues, please create a new issue in the [GitHub Issues](https://github.com/ItayTur/sohnim-io/issues) section of this repository.
 
 Happy coding!
 
