@@ -7,7 +7,7 @@ export default async function LeadProducts({
   params: Promise<{ leadId: number }>;
 }) {
   const leadId = Number((await params).leadId);
-  void api.product.getProductsByLeadId({ leadId });
+  void api.product.getProductsByLeadId.prefetch({ leadId });
   return (
     <HydrateClient>
       <ProductCategories leadId={leadId} />
