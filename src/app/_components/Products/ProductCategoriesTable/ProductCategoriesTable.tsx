@@ -11,7 +11,7 @@ import { productCategoryColumns } from "./ProductCategoriesTable.columns";
 export const ProductCategoriesTable = ({ leadId }: { leadId: number }) => {
   const { data: productCategories, isLoading } =
     api.product.getProductsByLeadId.useQuery({
-      leadId,
+      leadId: Number(leadId),
     });
 
   const [dialogCategory, setDialogCategory] = useState<ProductCategory>();

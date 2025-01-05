@@ -27,7 +27,7 @@ export const LeadsTableMenu = ({ lead }: LeadTableMenuProps) => {
       <ThreeDotsMenu>
         <MenuItem onClick={onEdit}>ערוך</MenuItem>
         <MenuItem>
-          <Link href={`/${lead.id}`}>מוצרים</Link>
+          <Link href={{ pathname: `/${lead.id}`, query: lead }}>מוצרים</Link>
         </MenuItem>
       </ThreeDotsMenu>
       <LeadDialog open={leadFormOpen} onClose={closeLeadForm} lead={lead} />

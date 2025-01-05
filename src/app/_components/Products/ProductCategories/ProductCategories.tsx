@@ -1,14 +1,16 @@
+import { LeadDetailsView } from "../../LeadDetails/LeadDetails";
+import { type Lead } from "../../Leads/Leads.types";
 import { Text } from "../../UI";
 import { ProductCategoriesTable } from "../ProductCategoriesTable/ProductCategoriesTable";
 
-export const ProductCategories = ({ leadId }: { leadId: number }) => {
+export const ProductCategories = ({ lead }: { lead: Lead }) => {
   return (
     <>
       <Text variant="h2" fontWeight={800} aria-label="product categories table">
-        Product By Categories
+        Lead Details
       </Text>
-
-      <ProductCategoriesTable leadId={leadId} />
+      <LeadDetailsView lead={lead} />
+      <ProductCategoriesTable leadId={lead.id} />
     </>
   );
 };
