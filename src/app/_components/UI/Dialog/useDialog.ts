@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 export const useDialog = () => {
-  const [dialogOpen, setDialogOpen] = useState(false);
+  const [isDialogOpen, setDialogOpen] = useState(false);
 
   const openDialog = () => {
     setDialogOpen(true);
@@ -14,7 +14,7 @@ export const useDialog = () => {
   };
 
   return {
-    dialogOpen,
+    isDialogOpen,
     openDialog,
     closeDialog,
   };

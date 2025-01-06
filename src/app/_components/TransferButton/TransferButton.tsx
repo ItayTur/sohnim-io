@@ -1,0 +1,21 @@
+"use client";
+
+import { TransferDialog } from "../TransferDialog/TransferDialog";
+import { Button, Dialog, useDialog } from "../UI";
+
+export const TransferButton = () => {
+  const { openDialog, isDialogOpen, closeDialog } = useDialog();
+
+  const onTransfer = () => {
+    openDialog();
+  };
+
+  return (
+    <>
+      <Button onClick={onTransfer}>Transfer</Button>
+      <Dialog open={isDialogOpen} onClose={closeDialog}>
+        <TransferDialog onClose={closeDialog} />
+      </Dialog>
+    </>
+  );
+};

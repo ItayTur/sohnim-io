@@ -13,7 +13,7 @@ type LeadTableMenuProps = {
 
 export const LeadsTableMenu = ({ lead }: LeadTableMenuProps) => {
   const {
-    dialogOpen: leadFormOpen,
+    isDialogOpen: isleadFormOpen,
     closeDialog: closeLeadForm,
     openDialog: openLeadForm,
   } = useDialog();
@@ -30,7 +30,7 @@ export const LeadsTableMenu = ({ lead }: LeadTableMenuProps) => {
           <Link href={{ pathname: `/${lead.id}`, query: lead }}>מוצרים</Link>
         </MenuItem>
       </ThreeDotsMenu>
-      <LeadDialog open={leadFormOpen} onClose={closeLeadForm} lead={lead} />
+      <LeadDialog open={isleadFormOpen} onClose={closeLeadForm} lead={lead} />
     </>
   );
 };
