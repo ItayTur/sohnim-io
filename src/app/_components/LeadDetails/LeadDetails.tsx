@@ -1,29 +1,18 @@
+import { LeadDetailsCard } from "../LeadDetailsCard/LeadDetailsCard";
 import { type Lead } from "../Leads/Leads.types";
-import { Box, Card, CardContent, Text } from "../UI";
+import { TransferButton } from "../TransferButton/TransferButton";
+import { Text } from "../UI";
+import { ProductCategoriesTable } from "./ProductCategoriesTable/ProductCategoriesTable";
 
-type LeadDetailsProps = {
-  lead: Lead;
-};
-
-export const LeadDetailsView = ({ lead }: LeadDetailsProps) => {
+export const LeadDetails = ({ lead }: { lead: Lead }) => {
   return (
-    <Card sx={{ maxWidth: 800, margin: "auto", mt: 5, boxShadow: 3 }}>
-      <CardContent>
-        <Box sx={{ display: "flex", flexDirection: "row", gap: 2 }}>
-          <Text variant="body1">
-            <strong>First Name:</strong> {lead.firstName}
-          </Text>
-          <Text variant="body1">
-            <strong>Last Name:</strong> {lead.lastName}
-          </Text>
-          <Text variant="body1">
-            <strong>Age:</strong> {lead.age}
-          </Text>
-          <Text variant="body1">
-            <strong>Email:</strong> {lead.email}
-          </Text>
-        </Box>
-      </CardContent>
-    </Card>
+    <>
+      <Text variant="h2" fontWeight={800} aria-label="product categories table">
+        Lead Details
+      </Text>
+      <TransferButton />
+      <LeadDetailsCard lead={lead} />
+      <ProductCategoriesTable leadId={lead.id} />
+    </>
   );
 };

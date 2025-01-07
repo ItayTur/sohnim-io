@@ -13,7 +13,7 @@ export const TransferButton = () => {
   return (
     <>
       <Button onClick={onTransfer}>Transfer</Button>
-      <Dialog open={isDialogOpen} onClose={closeDialog}>
+      <Dialog fullWidth maxWidth="md" open={isDialogOpen} onClose={closeDialog}>
         <TransferDialog onClose={closeDialog} />
       </Dialog>
     </>

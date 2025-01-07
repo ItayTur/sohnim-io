@@ -1,8 +1,8 @@
 import { api, HydrateClient } from "@/trpc/server";
+import { LeadDetails } from "../_components/LeadDetails/LeadDetails";
 import { type Lead } from "../_components/Leads/Leads.types";
-import { ProductCategories } from "../_components/Products/ProductCategories/ProductCategories";
 
-export default async function LeadProducts({
+export default async function LeadDetailsPage({
   searchParams,
 }: {
   searchParams: Promise<Record<string, string>>;
@@ -11,7 +11,7 @@ export default async function LeadProducts({
   void api.product.getProductsByLeadId.prefetch({ leadId: Number(lead.id) });
   return (
     <HydrateClient>
-      <ProductCategories lead={lead} />
+      <LeadDetails lead={lead} />
     </HydrateClient>
   );
 }
