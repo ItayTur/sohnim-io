@@ -19,13 +19,13 @@ export const theme = createTheme({
       main: secondaryMain, // Custom secondary color
     },
     text: {
-      primary: "#ffffff",
+      primary: foregroundPrimary,
       secondary: "#cccccc",
     },
   },
   typography: {
     allVariants: {
-      color: "#ffffff",
+      color: foregroundPrimary,
     },
   },
   components: {
