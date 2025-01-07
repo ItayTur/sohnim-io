@@ -1,23 +1,7 @@
-"use client";
-import TextField, { type TextFieldProps } from "@mui/material/TextField";
-import { Controller, useFormContext } from "react-hook-form";
+import MuiInput, { type TextFieldProps } from "@mui/material/TextField";
 
-type InputProps = TextFieldProps & { name: string };
+export type InputProps = TextFieldProps;
 
-export const Input: React.FC<InputProps> = ({ name, ...props }) => {
-  const { control } = useFormContext();
-
-  return (
-    <Controller
-      name={name}
-      control={control}
-      render={({ field, fieldState }) => (
-        <TextField
-          helperText={fieldState.error?.message}
-          {...field}
-          {...props}
-        />
-      )}
-    />
-  );
+export const Input = (props: InputProps) => {
+  return <MuiInput {...props} />;
 };

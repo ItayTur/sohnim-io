@@ -4,7 +4,7 @@ import { api } from "@/trpc/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import DialogContent from "@mui/material/DialogContent";
 import { FormProvider, useForm } from "react-hook-form";
-import { Button, DialogActions, DialogTitle, Input } from "../../UI";
+import { Button, DialogActions, DialogTitle, InputField } from "../../UI";
 import {
   LeadFormFields,
   type LeadFormValues,
@@ -39,21 +39,21 @@ export const LeadForm = ({ lead, onClose }: LeadFormProps) => {
       <DialogTitle>{edit ? "Edit Lead" : "Create Lead"}</DialogTitle>
       <DialogContent>
         <form className={styles.form}>
-          <Input
+          <InputField
             name={LeadFormFields.FirstName}
             id={LeadFormFields.FirstName}
             label="First Name"
             className={styles.input}
           />
 
-          <Input
+          <InputField
             name={LeadFormFields.LastName}
             id={LeadFormFields.LastName}
             label="Last Name"
             className={styles.input}
           />
 
-          <Input
+          <InputField
             name={LeadFormFields.Email}
             id={LeadFormFields.Email}
             type="email"
@@ -61,7 +61,7 @@ export const LeadForm = ({ lead, onClose }: LeadFormProps) => {
             className={styles.input}
           />
 
-          <Input
+          <InputField
             name={LeadFormFields.Age}
             id={LeadFormFields.Age}
             type="number"

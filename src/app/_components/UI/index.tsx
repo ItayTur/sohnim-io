@@ -4,7 +4,7 @@ export * from "./Card/Card";
 export * from "./CardContent/CardContent";
 export * from "./Dialog";
 export * from "./IconButton/IconButton";
-export * from "./Input/Input";
+export * from "./InputField/InputField";
 export * from "./Menu";
 export * from "./Table/Table";
 export * from "./Text/Text";

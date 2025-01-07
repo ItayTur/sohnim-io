@@ -6,7 +6,7 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
-  Input,
+  InputField,
 } from "../UI";
 
 type TransferDialogProps = {
@@ -29,14 +29,19 @@ export const TransferDialog = ({ onClose }: TransferDialogProps) => {
             name="amount"
             defaultValue=""
             render={({ field }) => (
-              <Input {...field} label="Amount" fullWidth margin="normal" />
+              <InputField {...field} label="Amount" fullWidth margin="normal" />
             )}
           />
           <Controller
             name="recipient"
             defaultValue=""
             render={({ field }) => (
-              <Input {...field} label="Recipient" fullWidth margin="normal" />
+              <InputField
+                {...field}
+                label="Recipient"
+                fullWidth
+                margin="normal"
+              />
             )}
           />
           <DialogActions>
