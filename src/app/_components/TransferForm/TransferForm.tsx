@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Divider } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
+import { PdfThumbnail } from "../PdfThumbnail/PdfThumbnail";
 import {
   AutocompleteField,
   Button,
@@ -11,7 +12,6 @@ import {
   DialogTitle,
   Stack,
 } from "../UI";
-import { PdfThumbnail } from "./PdfThumbnail/PdfThumbnail";
 import {
   type TransferFormValues,
   TransferKeys,
