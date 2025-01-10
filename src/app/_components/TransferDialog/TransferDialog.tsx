@@ -1,12 +1,13 @@
 "use client";
 
-import { Controller, FormProvider, useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import {
+  AutocompleteField,
   Button,
   DialogActions,
   DialogContent,
   DialogTitle,
-  InputField,
+  Stack,
 } from "../UI";
 
 type TransferDialogProps = {
@@ -25,25 +26,54 @@ export const TransferDialog = ({ onClose }: TransferDialogProps) => {
       <DialogTitle>Transfer Form</DialogTitle>
       <DialogContent>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <Controller
-            name="amount"
-            defaultValue=""
-            render={({ field }) => (
-              <InputField {...field} label="Amount" fullWidth margin="normal" />
-            )}
-          />
-          <Controller
-            name="recipient"
-            defaultValue=""
-            render={({ field }) => (
-              <InputField
-                {...field}
-                label="Recipient"
-                fullWidth
-                margin="normal"
-              />
-            )}
-          />
+          <Stack width={"100%"} minWidth={500} direction="row" spacing={2}>
+            <AutocompleteField
+              options={[]}
+              name="row1_col1"
+              label="Row 1, Col 1"
+              fullWidth
+              sx={{ flexGrow: 1 }}
+            />
+            <AutocompleteField
+              options={[]}
+              name="row1_col2"
+              label="Row 1, Col 2"
+              fullWidth
+              sx={{ flexGrow: 1 }}
+            />
+          </Stack>
+          <Stack width={"100%"} minWidth={500} direction="row" spacing={2}>
+            <AutocompleteField
+              options={[]}
+              name="row2_col1"
+              label="Row 2, Col 1"
+              fullWidth
+              sx={{ flexGrow: 1 }}
+            />
+            <AutocompleteField
+              options={[]}
+              name="row2_col2"
+              label="Row 2, Col 2"
+              fullWidth
+              sx={{ flexGrow: 1 }}
+            />
+          </Stack>
+          <Stack width={"100%"} minWidth={500} direction="row" spacing={2}>
+            <AutocompleteField
+              options={[]}
+              name="row3_col1"
+              label="Row 3, Col 1"
+              fullWidth
+              sx={{ flexGrow: 1 }}
+            />
+            <AutocompleteField
+              options={[]}
+              name="row3_col2"
+              label="Row 3, Col 2"
+              fullWidth
+              sx={{ flexGrow: 1 }}
+            />
+          </Stack>
           <DialogActions>
             <Button onClick={onClose}>Cancel</Button>
             <Button type="submit" color="primary">
