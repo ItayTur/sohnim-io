@@ -10,13 +10,13 @@ import {
   DialogTitle,
   Stack,
 } from "../UI";
-import { TransferKeys, transferSchema } from "./TransferDialog.consts";
+import { TransferKeys, transferSchema } from "./TransferForm.consts";
 
-type TransferDialogProps = {
+type TransferFormProps = {
   onClose: () => void;
 };
 
-export const TransferDialog = ({ onClose }: TransferDialogProps) => {
+export const TransferForm = ({ onClose }: TransferFormProps) => {
   const form = useForm({
     resolver: zodResolver(transferSchema),
   });

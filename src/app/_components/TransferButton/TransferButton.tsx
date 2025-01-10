@@ -1,6 +1,6 @@
 "use client";
 
-import { TransferDialog } from "../TransferDialog/TransferDialog";
+import { TransferForm } from "../TransferForm/TransferForm";
 import { Button, Dialog, useDialog } from "../UI";
 
 export const TransferButton = () => {
@@ -14,7 +14,7 @@ export const TransferButton = () => {
     <>
       <Button onClick={onTransfer}>Transfer</Button>
       <Dialog fullWidth maxWidth="md" open={isDialogOpen} onClose={closeDialog}>
-        <TransferDialog onClose={closeDialog} />
+        <TransferForm onClose={closeDialog} />
       </Dialog>
     </>
   );
