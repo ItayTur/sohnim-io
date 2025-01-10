@@ -1,5 +1,6 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm } from "react-hook-form";
 import {
   AutocompleteField,
@@ -9,13 +10,16 @@ import {
   DialogTitle,
   Stack,
 } from "../UI";
+import { TransferKeys, transferSchema } from "./TransferDialog.consts";
 
 type TransferDialogProps = {
   onClose: () => void;
 };
 
 export const TransferDialog = ({ onClose }: TransferDialogProps) => {
-  const form = useForm();
+  const form = useForm({
+    resolver: zodResolver(transferSchema),
+  });
 
   const onSubmit = () => {
     // console.log(data);
@@ -24,20 +28,20 @@ export const TransferDialog = ({ onClose }: TransferDialogProps) => {
   return (
     <FormProvider {...form}>
       <DialogTitle>Transfer Form</DialogTitle>
-      <DialogContent>
+      <DialogContent dividers>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <Stack width={"100%"} minWidth={500} direction="row" spacing={2}>
             <AutocompleteField
               options={[]}
-              name="row1_col1"
-              label="Row 1, Col 1"
+              name={TransferKeys.NEW_PRODUCT_TYPE}
+              label="New Product Type"
               fullWidth
               sx={{ flexGrow: 1 }}
             />
             <AutocompleteField
               options={[]}
-              name="row1_col2"
-              label="Row 1, Col 2"
+              name={TransferKeys.PREV_PRODUCT_TYPE}
+              label="Previous Product Type"
               fullWidth
               sx={{ flexGrow: 1 }}
             />
@@ -45,15 +49,15 @@ export const TransferDialog = ({ onClose }: TransferDialogProps) => {
           <Stack width={"100%"} minWidth={500} direction="row" spacing={2}>
             <AutocompleteField
               options={[]}
-              name="row2_col1"
-              label="Row 2, Col 1"
+              name={TransferKeys.NEW_COMPANY}
+              label="New Company"
               fullWidth
               sx={{ flexGrow: 1 }}
             />
             <AutocompleteField
               options={[]}
-              name="row2_col2"
-              label="Row 2, Col 2"
+              name={TransferKeys.PREV_COMPANY}
+              label="Previous Company"
               fullWidth
               sx={{ flexGrow: 1 }}
             />
@@ -61,27 +65,27 @@ export const TransferDialog = ({ onClose }: TransferDialogProps) => {
           <Stack width={"100%"} minWidth={500} direction="row" spacing={2}>
             <AutocompleteField
               options={[]}
-              name="row3_col1"
-              label="Row 3, Col 1"
+              name={TransferKeys.NEW_MAIN_COURSE}
+              label="New Main Course"
               fullWidth
               sx={{ flexGrow: 1 }}
             />
             <AutocompleteField
               options={[]}
-              name="row3_col2"
-              label="Row 3, Col 2"
+              name={TransferKeys.PREV_MAIN_COURSE}
+              label="Previous Main Course"
               fullWidth
               sx={{ flexGrow: 1 }}
             />
           </Stack>
-          <DialogActions>
-            <Button onClick={onClose}>Cancel</Button>
-            <Button type="submit" color="primary">
-              Submit
-            </Button>
-          </DialogActions>
         </form>
       </DialogContent>
+      <DialogActions>
+        <Button onClick={onClose}>Cancel</Button>
+        <Button type="submit" color="primary">
+          Submit
+        </Button>
+      </DialogActions>
     </FormProvider>
   );
 };
