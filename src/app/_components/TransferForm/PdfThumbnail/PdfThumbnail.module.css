@@ -1,0 +1,30 @@
+.pdfThumbnail {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .hover {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.pdfThumbnail:hover {
+  .hover {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .default {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}

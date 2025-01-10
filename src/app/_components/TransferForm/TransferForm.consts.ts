@@ -17,3 +17,5 @@ export const transferSchema = z.object({
   [TransferKeys.NEW_MAIN_COURSE]: z.string(),
   [TransferKeys.PREV_MAIN_COURSE]: z.string(),
 });
+
+export type TransferFormValues = z.infer<typeof transferSchema>;

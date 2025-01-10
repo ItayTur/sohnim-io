@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Divider } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
 import {
   AutocompleteField,
@@ -10,80 +11,91 @@ import {
   DialogTitle,
   Stack,
 } from "../UI";
-import { TransferKeys, transferSchema } from "./TransferForm.consts";
+import { PdfThumbnail } from "./PdfThumbnail/PdfThumbnail";
+import {
+  type TransferFormValues,
+  TransferKeys,
+  transferSchema,
+} from "./TransferForm.consts";
 
 type TransferFormProps = {
   onClose: () => void;
 };
 
 export const TransferForm = ({ onClose }: TransferFormProps) => {
-  const form = useForm({
+  const form = useForm<TransferFormValues>({
     resolver: zodResolver(transferSchema),
   });
 
-  const onSubmit = () => {
-    // console.log(data);
+  const onSubmit = (values: TransferFormValues) => {
+    console.log(values);
   };
+
+  const isAllFieldsSelected = true;
+  const files = isAllFieldsSelected ? <PdfThumbnail /> : null;
 
   return (
     <FormProvider {...form}>
       <DialogTitle>Transfer Form</DialogTitle>
-      <DialogContent dividers>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          <Stack width={"100%"} minWidth={500} direction="row" spacing={2}>
-            <AutocompleteField
-              options={[]}
-              name={TransferKeys.NEW_PRODUCT_TYPE}
-              label="New Product Type"
-              fullWidth
-              sx={{ flexGrow: 1 }}
-            />
-            <AutocompleteField
-              options={[]}
-              name={TransferKeys.PREV_PRODUCT_TYPE}
-              label="Previous Product Type"
-              fullWidth
-              sx={{ flexGrow: 1 }}
-            />
-          </Stack>
-          <Stack width={"100%"} minWidth={500} direction="row" spacing={2}>
-            <AutocompleteField
-              options={[]}
-              name={TransferKeys.NEW_COMPANY}
-              label="New Company"
-              fullWidth
-              sx={{ flexGrow: 1 }}
-            />
-            <AutocompleteField
-              options={[]}
-              name={TransferKeys.PREV_COMPANY}
-              label="Previous Company"
-              fullWidth
-              sx={{ flexGrow: 1 }}
-            />
-          </Stack>
-          <Stack width={"100%"} minWidth={500} direction="row" spacing={2}>
-            <AutocompleteField
-              options={[]}
-              name={TransferKeys.NEW_MAIN_COURSE}
-              label="New Main Course"
-              fullWidth
-              sx={{ flexGrow: 1 }}
-            />
-            <AutocompleteField
-              options={[]}
-              name={TransferKeys.PREV_MAIN_COURSE}
-              label="Previous Main Course"
-              fullWidth
-              sx={{ flexGrow: 1 }}
-            />
-          </Stack>
-        </form>
+      <DialogContent
+        sx={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+        dividers
+      >
+        <Stack width={"100%"} minWidth={500} direction="row" spacing={2}>
+          <AutocompleteField
+            options={[]}
+            name={TransferKeys.NEW_PRODUCT_TYPE}
+            label="New Product Type"
+            fullWidth
+            sx={{ flexGrow: 1 }}
+          />
+          <AutocompleteField
+            options={[]}
+            name={TransferKeys.PREV_PRODUCT_TYPE}
+            label="Previous Product Type"
+            fullWidth
+            sx={{ flexGrow: 1 }}
+          />
+        </Stack>
+        <Stack width={"100%"} minWidth={500} direction="row" spacing={2}>
+          <AutocompleteField
+            options={[]}
+            name={TransferKeys.NEW_COMPANY}
+            label="New Company"
+            fullWidth
+            sx={{ flexGrow: 1 }}
+          />
+          <AutocompleteField
+            options={[]}
+            name={TransferKeys.PREV_COMPANY}
+            label="Previous Company"
+            fullWidth
+            sx={{ flexGrow: 1 }}
+          />
+        </Stack>
+        <Stack width={"100%"} minWidth={500} direction="row" spacing={2}>
+          <AutocompleteField
+            options={[]}
+            name={TransferKeys.NEW_MAIN_COURSE}
+            label="New Main Course"
+            fullWidth
+            sx={{ flexGrow: 1 }}
+          />
+          <AutocompleteField
+            options={[]}
+            name={TransferKeys.PREV_MAIN_COURSE}
+            label="Previous Main Course"
+            fullWidth
+            sx={{ flexGrow: 1 }}
+          />
+        </Stack>
+        <Divider />
+        {files}
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>
-        <Button type="submit" color="primary">
-          Submit
+        <Button color="primary" onClick={form.handleSubmit(onSubmit)}>
+          Transfer
         </Button>
       </DialogActions>
     </FormProvider>
