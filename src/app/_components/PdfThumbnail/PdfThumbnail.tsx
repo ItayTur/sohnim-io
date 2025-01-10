@@ -2,11 +2,12 @@ import Image from "next/image";
 import styles from "./PdfThumbnail.module.css";
 
 export const PdfThumbnail = () => {
-  const onPdfClick = () => {
-    console.log("hello from on click");
+  const onClick = () => {
+    console.log("hello from click");
   };
+
   return (
-    <div className={styles.pdfThumbnail} onClick={onPdfClick}>
+    <div className={styles.pdfThumbnail} onClick={onClick}>
       <Image
         src="/pdf_thumbnail_sohnimio_3d_default.svg"
         alt="PDF Thumbnail"
