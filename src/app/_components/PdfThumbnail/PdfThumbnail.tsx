@@ -1,3 +1,4 @@
+import classnames from "classnames";
 import Image from "next/image";
 import styles from "./PdfThumbnail.module.css";
 
@@ -13,7 +14,7 @@ export const PdfThumbnail = () => {
         alt="PDF Thumbnail"
         width={100}
         height={100}
-        className={styles.default}
+        className={classnames(styles.default, styles.img)}
         priority
       />
       <Image
@@ -21,7 +22,7 @@ export const PdfThumbnail = () => {
         alt="PDF Thumbnail Hover"
         width={100}
         height={100}
-        className={styles.hover}
+        className={classnames(styles.hover, styles.img)}
         priority
       />
     </div>
