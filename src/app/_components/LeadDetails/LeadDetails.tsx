@@ -1,18 +1,23 @@
-import { LeadDetailsCard } from "../LeadDetailsCard/LeadDetailsCard";
+import { Suspense } from "react";
 import { type Lead } from "../Leads/Leads.types";
 import { TransferButton } from "../TransferButton/TransferButton";
 import { Text } from "../UI";
-import { ProductCategoriesTable } from "./ProductCategoriesTable/ProductCategoriesTable";
+import { LeadInfo } from "./LeadInfo/LeadInfo";
 
-export const LeadDetails = ({ lead }: { lead: Lead }) => {
+export const LeadDetails = ({
+  searchParams,
+}: {
+  searchParams: Promise<Lead>;
+}) => {
   return (
     <>
       <Text variant="h2" fontWeight={800} aria-label="product categories table">
         Lead Details
       </Text>
       <TransferButton />
-      <LeadDetailsCard lead={lead} />
-      <ProductCategoriesTable leadId={lead.id} />
+      <Suspense fallback="loading...">
+        <LeadInfo searchParams={searchParams} />
+      </Suspense>
     </>
   );
 };
