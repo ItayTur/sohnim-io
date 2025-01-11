@@ -34,6 +34,7 @@ export const LeadsTable = () => {
             ],
           },
         }}
+        clickableRow
       />
     </Box>
   );

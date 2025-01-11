@@ -1,6 +1,8 @@
 import { DataGrid, type DataGridProps } from "@mui/x-data-grid";
 
-export const Table = (props: DataGridProps) => {
+type TableProps = DataGridProps & { clickableRow?: boolean };
+
+export const Table = ({ clickableRow, ...props }: TableProps) => {
   return (
     <DataGrid
       sx={{
@@ -11,6 +13,12 @@ export const Table = (props: DataGridProps) => {
         "& .MuiButtonBase-root": {
           color: "var(--foreground-primary) !important",
         },
+        "& .MuiDataGrid-row:hover": clickableRow
+          ? {
+              cursor: "pointer",
+              backgroundColor: "secondary.light",
+            }
+          : undefined,
       }}
       {...props}
     />

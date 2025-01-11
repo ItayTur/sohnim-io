@@ -40,6 +40,7 @@ export const ProductCategoriesTable = ({ leadId }: { leadId: number }) => {
             ],
           },
         }}
+        clickableRow
       />
       <Dialog open={dialogOpen} onClose={onCloseDialog}>
         <ProductCategoryDialog
