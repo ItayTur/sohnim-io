@@ -4,6 +4,7 @@ export * from "./Box/Box";
 export * from "./Button/Button";
 export * from "./Card/Card";
 export * from "./CardContent/CardContent";
+export * from "./CircularProgress/CircularProgress";
 export * from "./Dialog";
 export * from "./IconButton/IconButton";
 export * from "./InputField/InputField";
