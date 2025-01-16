@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Divider } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
+import { EditPdfThumbnail } from "../PdfThumbnail/EditPdfThumbnail";
 import { PdfThumbnail } from "../PdfThumbnail/PdfThumbnail";
 import {
   AutocompleteField,
@@ -27,12 +28,17 @@ export const TransferForm = ({ onClose }: TransferFormProps) => {
     resolver: zodResolver(transferSchema),
   });
 
-  const onSubmit = (values: TransferFormValues) => {
+  const onSubmit = async (values: TransferFormValues) => {
     console.log(values);
   };
 
   const isAllFieldsSelected = true;
-  const files = isAllFieldsSelected ? <PdfThumbnail /> : null;
+  const files = isAllFieldsSelected ? (
+    <Stack direction="row" spacing={2}>
+      <PdfThumbnail />
+      <EditPdfThumbnail />
+    </Stack>
+  ) : null;
 
   return (
     <FormProvider {...form}>
