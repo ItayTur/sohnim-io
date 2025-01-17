@@ -3,8 +3,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Divider } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
-import { EditPdfThumbnail } from "../PdfThumbnail/EditPdfThumbnail";
-import { PdfThumbnail } from "../PdfThumbnail/PdfThumbnail";
+import { IframePdfThumbnail } from "../PdfThumbnail/IframePdfThumbnail";
+
+import { EmbedPdfThumbnail } from "../PdfThumbnail/EmbedPdfThumbnail";
 import {
   AutocompleteField,
   Button,
@@ -18,6 +19,7 @@ import {
   TransferKeys,
   transferSchema,
 } from "./TransferForm.consts";
+import { getDefaultTransfer } from "./TransferForm.utils";
 
 type TransferFormProps = {
   onClose: () => void;
@@ -26,6 +28,7 @@ type TransferFormProps = {
 export const TransferForm = ({ onClose }: TransferFormProps) => {
   const form = useForm<TransferFormValues>({
     resolver: zodResolver(transferSchema),
+    defaultValues: getDefaultTransfer(),
   });
 
   const onSubmit = async (values: TransferFormValues) => {
@@ -35,8 +38,8 @@ export const TransferForm = ({ onClose }: TransferFormProps) => {
   const isAllFieldsSelected = true;
   const files = isAllFieldsSelected ? (
     <Stack direction="row" spacing={2}>
-      <PdfThumbnail />
-      <EditPdfThumbnail />
+      <EmbedPdfThumbnail />
+      <IframePdfThumbnail />
     </Stack>
   ) : null;
 
