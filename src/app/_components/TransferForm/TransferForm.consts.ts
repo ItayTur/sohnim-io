@@ -8,6 +8,7 @@ export enum TransferKeys {
   NEW_MAIN_COURSE = "newMainCourse",
   PREV_MAIN_COURSE = "prevMainCourse",
   IS_DEFAULT = "isDefault",
+  SUBMISSION_ID = "submissionId",
 }
 
 export const transferSchema = z.object({
@@ -18,6 +19,7 @@ export const transferSchema = z.object({
   [TransferKeys.NEW_MAIN_COURSE]: z.string(),
   [TransferKeys.PREV_MAIN_COURSE]: z.string(),
   [TransferKeys.IS_DEFAULT]: z.boolean(),
+  [TransferKeys.SUBMISSION_ID]: z.string(),
 });
 
 export type TransferFormValues = z.infer<typeof transferSchema>;

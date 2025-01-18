@@ -13,9 +13,14 @@ export const useDialog = () => {
     setDialogOpen(false);
   };
 
+  const toggleDialog = () => {
+    setDialogOpen((prevState) => !prevState);
+  };
+
   return {
     isDialogOpen,
     openDialog,
     closeDialog,
+    toggleDialog,
   };
 };

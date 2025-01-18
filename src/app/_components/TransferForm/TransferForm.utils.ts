@@ -9,5 +9,6 @@ export const getDefaultTransfer = (): TransferFormValues => {
     [TransferKeys.PREV_COMPANY]: "",
     [TransferKeys.PREV_MAIN_COURSE]: "",
     [TransferKeys.PREV_PRODUCT_TYPE]: "",
+    [TransferKeys.SUBMISSION_ID]: "",
   };
 };
