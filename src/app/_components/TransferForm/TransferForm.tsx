@@ -3,9 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Divider } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
-import { IframePdfThumbnail } from "../PdfThumbnail/IframePdfThumbnail";
 
-import { EmbedPdfThumbnail } from "../PdfThumbnail/EmbedPdfThumbnail";
 import { InlinePdfThumbnail } from "../PdfThumbnail/InlinePdfThumbnail";
 import {
   AutocompleteField,
@@ -39,9 +37,14 @@ export const TransferForm = ({ onClose }: TransferFormProps) => {
   const isAllFieldsSelected = true;
   const files = isAllFieldsSelected ? (
     <Stack direction="row" spacing={2}>
-      <EmbedPdfThumbnail />
-      <IframePdfThumbnail />
-      <InlinePdfThumbnail />
+      <InlinePdfThumbnail
+        title="New"
+        url="https://xfuv7323.simplepdf.com/form/adadced2-781c-4f68-aadd-13b3d173d633"
+      />
+      <InlinePdfThumbnail
+        title="Template"
+        url="https://www.harel-group.co.il/long-term-savings/pension/join/doclib/%D7%98%D7%95%D7%A4%D7%A1%20%D7%91%D7%A7%D7%A9%D7%AA%20%D7%94%D7%A2%D7%91%D7%A8%D7%94%20%D7%9C%D7%A7%D7%95%D7%A4%D7%AA%20%D7%92%D7%9E%D7%9C%20%D7%9E%D7%A9%D7%9C%D7%9E%D7%AA%20%D7%9C%D7%A7%D7%A6%D7%91%D7%94%20-%20%D7%94%D7%A8%D7%90%D7%9C%20%D7%A4%D7%A0%D7%A1%D7%99%D7%94.pdf"
+      />
     </Stack>
   ) : null;
 

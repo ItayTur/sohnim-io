@@ -1,7 +1,11 @@
 "use client";
 
-import { EmbedPDF } from "@simplepdf/react-embed-pdf";
-import { TransferKeys } from "../TransferForm/TransferForm.consts";
+import { type EmbedEvent, EmbedPDF } from "@simplepdf/react-embed-pdf";
+import { useFormContext } from "react-hook-form";
+import {
+  type TransferFormValues,
+  TransferKeys,
+} from "../TransferForm/TransferForm.consts";
 import {
   Button,
   CheckboxField,
@@ -13,32 +17,41 @@ import {
 } from "../UI";
 import { PdfThumbnail } from "./PdfThumbnail";
 
+type InlinePdfThumbnailProps = {
+  title: string;
+  url: string;
+};
 /**
  * InlinePdfThumbnail component allows displaying any PDF that is hosted on a server.
  * It uses a thumbnail to represent the PDF and opens a dialog with an embedded PDF viewer when clicked.
+ *
+ * @param {string} title - The title of the PDF.
+ * @param {string} url - The URL of the PDF to display.
  */
-export const InlinePdfThumbnail = () => {
+export const InlinePdfThumbnail = ({ title, url }: InlinePdfThumbnailProps) => {
   const { isDialogOpen, openDialog, closeDialog } = useDialog();
+  const { setValue } = useFormContext<TransferFormValues>();
+
+  const onSubmit = (e: EmbedEvent) => {
+    if (e.type === "SUBMISSION_SENT") {
+      setValue(TransferKeys.SUBMISSION_ID, e.data.submission_id);
+      alert("Submission saved!");
+      closeDialog();
+    }
+  };
 
   return (
     <div>
-      <Text>Inline</Text>
+      <Text>{title}</Text>
       <PdfThumbnail onClick={openDialog} />
       <Dialog maxWidth="xl" fullWidth open={isDialogOpen}>
         <DialogContent dividers>
           <EmbedPDF
             mode="inline"
             companyIdentifier={process.env.NEXT_PUBLIC_SIMPLE_PDF_COMPANY_ID}
-            documentURL={
-              "https://www.harel-group.co.il/long-term-savings/pension/join/doclib/%D7%98%D7%95%D7%A4%D7%A1%20%D7%91%D7%A7%D7%A9%D7%AA%20%D7%94%D7%A2%D7%91%D7%A8%D7%94%20%D7%9C%D7%A7%D7%95%D7%A4%D7%AA%20%D7%92%D7%9E%D7%9C%20%D7%9E%D7%A9%D7%9C%D7%9E%D7%AA%20%D7%9C%D7%A7%D7%A6%D7%91%D7%94%20-%20%D7%94%D7%A8%D7%90%D7%9C%20%D7%A4%D7%A0%D7%A1%D7%99%D7%94.pdf"
-            }
+            documentURL={url}
             style={{ width: "100%", height: "900px" }}
-            onEmbedEvent={(e) => {
-              if (e.type === "SUBMISSION_SENT") {
-                closeDialog();
-                alert("Submission saved!");
-              }
-            }}
+            onEmbedEvent={onSubmit}
           />
         </DialogContent>
         <DialogActions>
