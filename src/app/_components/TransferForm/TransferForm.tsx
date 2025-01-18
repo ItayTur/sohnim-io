@@ -6,6 +6,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { IframePdfThumbnail } from "../PdfThumbnail/IframePdfThumbnail";
 
 import { EmbedPdfThumbnail } from "../PdfThumbnail/EmbedPdfThumbnail";
+import { InlinePdfThumbnail } from "../PdfThumbnail/InlinePdfThumbnail";
 import {
   AutocompleteField,
   Button,
@@ -40,6 +41,7 @@ export const TransferForm = ({ onClose }: TransferFormProps) => {
     <Stack direction="row" spacing={2}>
       <EmbedPdfThumbnail />
       <IframePdfThumbnail />
+      <InlinePdfThumbnail />
     </Stack>
   ) : null;
 

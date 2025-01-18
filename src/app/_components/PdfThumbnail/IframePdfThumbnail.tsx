@@ -28,7 +28,7 @@ export const IframePdfThumbnail = () => {
       <PdfThumbnail onClick={openDialog} />
       <Dialog maxWidth="xl" fullWidth open={isDialogOpen}>
         <iframe
-          src="https://xfuv7323.simplepdf.com/form/adadced2-781c-4f68-aadd-13b3d173d633"
+          src={`https://${process.env.NEXT_PUBLIC_SIMPLE_PDF_COMPANY_ID}.simplepdf.com/form/adadced2-781c-4f68-aadd-13b3d173d633`}
           width="100%"
           height="900px"
         />

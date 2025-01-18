@@ -13,8 +13,12 @@ export const EmbedPdfThumbnail = () => {
   return (
     <div>
       <Text>Embed</Text>
-      <EmbedPDF locale="it" companyIdentifier="xfuv7323">
-        <Link href="https://xfuv7323.simplepdf.com/form/adadced2-781c-4f68-aadd-13b3d173d633">
+      <EmbedPDF
+        companyIdentifier={process.env.NEXT_PUBLIC_SIMPLE_PDF_COMPANY_ID}
+      >
+        <Link
+          href={`https://${process.env.NEXT_PUBLIC_SIMPLE_PDF_COMPANY_ID}.simplepdf.com/form/adadced2-781c-4f68-aadd-13b3d173d633`}
+        >
           <PdfThumbnail />
         </Link>
       </EmbedPDF>
