@@ -19,13 +19,12 @@ import { PdfThumbnail } from "./PdfThumbnail";
  */
 export const InlinePdfThumbnail = () => {
   const { isDialogOpen, openDialog, closeDialog } = useDialog();
-  console.log({ isDialogOpen });
   return (
     <div>
       <Text>Inline</Text>
       <PdfThumbnail onClick={openDialog} />
       <Dialog maxWidth="xl" fullWidth open={isDialogOpen}>
-        <DialogContent>
+        <DialogContent dividers>
           <EmbedPDF
             mode="inline"
             companyIdentifier={process.env.NEXT_PUBLIC_SIMPLE_PDF_COMPANY_ID}
@@ -38,7 +37,6 @@ export const InlinePdfThumbnail = () => {
               }
             }}
           />
-          <div>hello</div>
         </DialogContent>
         <DialogActions>
           <CheckboxField name={TransferKeys.IS_DEFAULT} label="Default" />
