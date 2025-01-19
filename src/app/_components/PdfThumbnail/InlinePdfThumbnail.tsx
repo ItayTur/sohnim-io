@@ -8,7 +8,6 @@ import {
 } from "../TransferForm/TransferForm.consts";
 import {
   Button,
-  CheckboxField,
   Dialog,
   DialogActions,
   DialogContent,
@@ -55,7 +54,6 @@ export const InlinePdfThumbnail = ({ title, url }: InlinePdfThumbnailProps) => {
           />
         </DialogContent>
         <DialogActions>
-          <CheckboxField name={TransferKeys.IS_DEFAULT} label="Default" />
           <Button onClick={closeDialog}>Close</Button>
         </DialogActions>
       </Dialog>
