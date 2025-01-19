@@ -8,7 +8,6 @@ export enum TransferKeys {
   PREV_COMPANY = "prevCompany",
   NEW_MAIN_COURSE = "newMainCourse",
   PREV_MAIN_COURSE = "prevMainCourse",
-  IS_DEFAULT = "isDefault",
   SUBMISSION_ID = "submissionId",
 }
 
@@ -19,7 +18,6 @@ export const transferSchema = z.object({
   [TransferKeys.PREV_COMPANY]: z.string().nonempty(REQUIRED_MESSAGE),
   [TransferKeys.NEW_MAIN_COURSE]: z.string().nonempty(REQUIRED_MESSAGE),
   [TransferKeys.PREV_MAIN_COURSE]: z.string().nonempty(REQUIRED_MESSAGE),
-  [TransferKeys.IS_DEFAULT]: z.boolean(),
   [TransferKeys.SUBMISSION_ID]: z.string().nonempty(REQUIRED_MESSAGE),
 });
 
